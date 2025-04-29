@@ -1,6 +1,4 @@
 using UnityEngine;
-
-//TPFinal - [Your Name]
 public class Player : Entity
 {
     private CharacterController controller;

@@ -7,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Shader Graphs_Water
-  m_Shader: {fileID: -6465566751694194690, guid: 40a3884f4eb308e4d9dd051f2cb045b3,
+  m_Name: Toon
+  m_Shader: {fileID: -6465566751694194690, guid: 5cec0f16a35d1b34690a1aeeb6cf2afd,
     type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -38,21 +38,16 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _Altura_Olas: 0.05
-    - _FallOff: 2.02
-    - _FallOff_1: 0.25
+    - _OutlineThickness: 0.1
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _Speed: 0.31
-    - _Speed_Olas: 0.29
-    - _X: 0
-    - _distance: 1.9
-    - _distance_1: 1
+    - _Shadow_Threshold: -0.95
     m_Colors:
-    - _Orilla: {r: 0.18166606, g: 0.4667256, b: 0.5943396, a: 0}
-    - _color_base: {r: 0.15090448, g: 0.10765392, b: 0.7924528, a: 0}
+    - _BaseColor: {r: 1, g: 0.08962262, b: 0.08962262, a: 0}
+    - _OutlineColor: {r: 0, g: 0, b: 0, a: 0}
+    - _ShadowColor: {r: 0.19607836, g: 0.19607836, b: 0.19607836, a: 0}
   m_BuildTextureStacks: []
---- !u!114 &2089839171542691738
+--- !u!114 &990974689229663470
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}
