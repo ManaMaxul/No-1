@@ -1,56 +1,71 @@
 using UnityEngine;
 
+/// <summary>
+/// Estado de patrullaje del cazador.
+/// Controla el comportamiento de movimiento entre waypoints y la detecci贸n de presas.
+/// Implementa la l贸gica de navegaci贸n y transici贸n a otros estados.
+/// </summary>
 public class PatrolState : IState
 {
     Hunter _hunter;
-    float _patrolTimer; // Temporizador para tiempo m韓imo en Patrol
-    const float MIN_PATROL_TIME = 2f; // Tiempo m韓imo en Patrol antes de buscar boids (2 segundos)
+    float _patrolTimer;
+    const float MIN_PATROL_TIME = 2f;
 
     public PatrolState(Hunter hunter)
     {
         _hunter = hunter;
     }
 
+    /// <summary>
+    /// Se ejecuta al entrar en el estado de patrullaje.
+    /// Inicializa el temporizador y encuentra el waypoint m谩s cercano.
+    /// </summary>
     public void OnEnter()
     {
         Debug.Log("Hunter: Entering Patrol");
         _hunter.ResetVelocity();
-        _hunter.ResetWaypointIndex();
         _hunter.FindNearestWaypoint();
         _patrolTimer = MIN_PATROL_TIME;
     }
 
+    /// <summary>
+    /// Actualiza el estado de patrullaje en cada frame.
+    /// Maneja la l贸gica de movimiento entre waypoints y la detecci贸n de presas.
+    /// </summary>
     public void OnUpdate()
     {
         _hunter.DrainEnergy(_hunter.EnergyDrainRate);
-
-        // Reducir el temporizador
         _patrolTimer -= Time.deltaTime;
 
-        // Solo buscar boids despu閟 de haber patrullado por un tiempo m韓imo
-        if (_patrolTimer <= 0)
+        var boid = _hunter.FindNearestBoid();
+        if (boid != null)
         {
-            var boid = _hunter.FindNearestBoid();
-            if (boid != null)
-            {
-                Debug.Log($"Hunter: Detected a boid at distance {Vector3.Distance(_hunter.transform.position, boid.transform.position)}, transitioning to Hunting");
-                _hunter.TargetBoid = boid;
-                _hunter.ChangeState(TypeFSM.Hunting);
-                return;
-            }
+            Debug.Log($"Hunter: Detected a boid at distance {Vector3.Distance(_hunter.transform.position, boid.transform.position)}, transitioning to HUNTING");
+            _hunter.TargetBoid = boid;
+            _hunter.ChangeState(TypeFSM.Hunting);
+            return;
         }
 
         var waypoint = _hunter.GetNextWaypoint();
-        if (waypoint == null) return;
+        if (waypoint == null)
+        {
+            Debug.Log("Hunter: No waypoints available, transitioning to Rest");
+            _hunter.ChangeState(TypeFSM.Idle);
+            return;
+        }
+
+        if (_hunter.IsAtWaypoint(waypoint) && _patrolTimer <= 0)
+        {
+            _hunter.MoveToNextWaypoint();
+            _patrolTimer = MIN_PATROL_TIME;
+        }
 
         _hunter.AddForce(_hunter.Seek(waypoint.position));
-        if (_hunter.IsAtWaypoint(waypoint))
-            _hunter.MoveToNextWaypoint();
     }
 
-    
-
-
+    /// <summary>
+    /// Se ejecuta al salir del estado de patrullaje.
+    /// </summary>
     public void OnExit()
     {
         Debug.Log("Hunter: Exiting Patrol");

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028331, g: 0.2257133, b: 0.3069217, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1167,7 +1167,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 1467327122}
-  m_VersionIndex: 2271
+  m_VersionIndex: 2274
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -1808,7 +1808,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   foodPrefab: {fileID: 5302598944690690120, guid: 186173f32ad53374c802c96a0879e61a,
     type: 3}
-  maxFoodCount: 3
+  maxFoodCount: 5
   spawnArea: {x: 20, y: 20}
 --- !u!4 &1087909587
 Transform:
@@ -1867,7 +1867,7 @@ PrefabInstance:
     - target: {fileID: 723407941897649800, guid: 40d032de7384b8449839df4cfb573aa4,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 15.19
+      value: -26.4
       objectReference: {fileID: 0}
     - target: {fileID: 723407941897649800, guid: 40d032de7384b8449839df4cfb573aa4,
         type: 3}
@@ -1877,7 +1877,7 @@ PrefabInstance:
     - target: {fileID: 723407941897649800, guid: 40d032de7384b8449839df4cfb573aa4,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -11.94
+      value: -66.8
       objectReference: {fileID: 0}
     - target: {fileID: 723407941897649800, guid: 40d032de7384b8449839df4cfb573aa4,
         type: 3}
@@ -1949,6 +1949,11 @@ PrefabInstance:
       propertyPath: waypoints.Array.data[5]
       value: 
       objectReference: {fileID: 1985455392}
+    - target: {fileID: 7250065636109202103, guid: 40d032de7384b8449839df4cfb573aa4,
+        type: 3}
+      propertyPath: waypoints.Array.data[6]
+      value: 
+      objectReference: {fileID: 1161301691}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
