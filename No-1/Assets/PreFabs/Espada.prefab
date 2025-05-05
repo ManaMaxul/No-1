@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 5789988262129009676}
   - component: {fileID: 7130778007979472598}
   - component: {fileID: 4329169915275897562}
-  - component: {fileID: 3205801852145706474}
   - component: {fileID: 1884301144829557302}
   m_Layer: 0
   m_Name: Espada
@@ -322,14 +321,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!33 &3205801852145706474
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6624465107515798835}
-  m_Mesh: {fileID: 0}
 --- !u!65 &1884301144829557302
 BoxCollider:
   m_ObjectHideFlags: 0
