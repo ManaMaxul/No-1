@@ -12,6 +12,8 @@ public class Inventory : MonoBehaviour
         public float defense;
         public string itemName;
         public string description;
+        public Vector3 handOffset; // Offset para ajustar la posición en la mano
+        public Vector3 handRotation; // Rotación para ajustar en la mano
 
         public Item(ItemType type, GameObject prefab = null, float damage = 0f, float defense = 0f, string itemName = "", string description = "")
         {
@@ -21,6 +23,8 @@ public class Inventory : MonoBehaviour
             this.defense = defense;
             this.itemName = itemName;
             this.description = description;
+            this.handOffset = Vector3.zero;
+            this.handRotation = Vector3.zero;
         }
     }
 
@@ -55,6 +59,7 @@ public class Inventory : MonoBehaviour
         if (leftHandTransform == null || rightHandTransform == null)
         {
             Debug.LogError("Por favor asigna los puntos de anclaje para las manos en el Inspector.");
+            return;
         }
 
         // Inicializar con un escudo básico en la mano derecha
@@ -142,7 +147,23 @@ public class Inventory : MonoBehaviour
         if (targetObject != null) Destroy(targetObject);
         if (targetItem != null && targetItem.prefab != null && targetHand != null)
         {
-            targetObject = Instantiate(targetItem.prefab, targetHand.position, targetHand.rotation, targetHand);
+            targetObject = Instantiate(targetItem.prefab, targetHand);
+            targetObject.transform.localPosition = targetItem.handOffset;
+            targetObject.transform.localRotation = Quaternion.Euler(targetItem.handRotation);
+            
+            // Asegurarse de que el objeto tenga un Rigidbody y Collider apropiados
+            Rigidbody rb = targetObject.GetComponent<Rigidbody>();
+            if (rb != null)
+            {
+                rb.isKinematic = true;
+                rb.useGravity = false;
+            }
+
+            Collider col = targetObject.GetComponent<Collider>();
+            if (col != null)
+            {
+                col.isTrigger = true;
+            }
         }
     }
 

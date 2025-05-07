@@ -3,12 +3,16 @@
   "WorkspaceRootPath": "C:\\Users\\Manuel\\Desktop\\Facultad\\2do A\u00F1o\\2do Cuatrimestre\\Aplicaci\u00F3n de Motores II\\No-1\\No-1\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{B4114BF3-EC5F-6CDE-FACF-AA0AED7B07C8}|Assembly-CSharp.csproj|c:\\users\\manuel\\desktop\\facultad\\2do a\u00F1o\\2do cuatrimestre\\aplicaci\u00F3n de motores ii\\no-1\\no-1\\assets\\scripts\\entities\\entity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B4114BF3-EC5F-6CDE-FACF-AA0AED7B07C8}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\entities\\entity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{B4114BF3-EC5F-6CDE-FACF-AA0AED7B07C8}|Assembly-CSharp.csproj|C:\\Users\\Manuel\\Desktop\\Facultad\\2do A\u00F1o\\2do Cuatrimestre\\Aplicaci\u00F3n de Motores II\\No-1\\No-1\\assets\\scripts\\entities\\scuttlebot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{B4114BF3-EC5F-6CDE-FACF-AA0AED7B07C8}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\entities\\scuttlebot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B4114BF3-EC5F-6CDE-FACF-AA0AED7B07C8}|Assembly-CSharp.csproj|c:\\users\\manuel\\desktop\\facultad\\2do a\u00F1o\\2do cuatrimestre\\aplicaci\u00F3n de motores ii\\no-1\\no-1\\assets\\scripts\\managers\\gamemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B4114BF3-EC5F-6CDE-FACF-AA0AED7B07C8}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\managers\\gamemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B4114BF3-EC5F-6CDE-FACF-AA0AED7B07C8}|Assembly-CSharp.csproj|C:\\Users\\Manuel\\Desktop\\Facultad\\2do A\u00F1o\\2do Cuatrimestre\\Aplicaci\u00F3n de Motores II\\No-1\\No-1\\assets\\scripts\\entities\\entity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B4114BF3-EC5F-6CDE-FACF-AA0AED7B07C8}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\entities\\entity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{B4114BF3-EC5F-6CDE-FACF-AA0AED7B07C8}|Assembly-CSharp.csproj|C:\\Users\\Manuel\\Desktop\\Facultad\\2do A\u00F1o\\2do Cuatrimestre\\Aplicaci\u00F3n de Motores II\\No-1\\No-1\\assets\\scripts\\player\\playermovement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -17,10 +21,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{B4114BF3-EC5F-6CDE-FACF-AA0AED7B07C8}|Assembly-CSharp.csproj|C:\\Users\\Manuel\\Desktop\\Facultad\\2do A\u00F1o\\2do Cuatrimestre\\Aplicaci\u00F3n de Motores II\\No-1\\No-1\\assets\\scripts\\player\\inventory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{B4114BF3-EC5F-6CDE-FACF-AA0AED7B07C8}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\player\\inventory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B4114BF3-EC5F-6CDE-FACF-AA0AED7B07C8}|Assembly-CSharp.csproj|C:\\Users\\Manuel\\Desktop\\Facultad\\2do A\u00F1o\\2do Cuatrimestre\\Aplicaci\u00F3n de Motores II\\No-1\\No-1\\assets\\scripts\\managers\\gamemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B4114BF3-EC5F-6CDE-FACF-AA0AED7B07C8}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\managers\\gamemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{B4114BF3-EC5F-6CDE-FACF-AA0AED7B07C8}|Assembly-CSharp.csproj|C:\\Users\\Manuel\\Desktop\\Facultad\\2do A\u00F1o\\2do Cuatrimestre\\Aplicaci\u00F3n de Motores II\\No-1\\No-1\\assets\\scripts\\player\\playerstats.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -54,7 +54,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 6,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
@@ -70,15 +70,16 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "ScuttleBot.cs",
               "DocumentMoniker": "C:\\Users\\Manuel\\Desktop\\Facultad\\2do A\u00F1o\\2do Cuatrimestre\\Aplicaci\u00F3n de Motores II\\No-1\\No-1\\Assets\\Scripts\\Entities\\ScuttleBot.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Entities\\ScuttleBot.cs",
               "ToolTip": "C:\\Users\\Manuel\\Desktop\\Facultad\\2do A\u00F1o\\2do Cuatrimestre\\Aplicaci\u00F3n de Motores II\\No-1\\No-1\\Assets\\Scripts\\Entities\\ScuttleBot.cs",
               "RelativeToolTip": "Assets\\Scripts\\Entities\\ScuttleBot.cs",
-              "ViewState": "AQIAAEgAAAAAAAAAAAAmwIsAAAABAAAA",
+              "ViewState": "AQIAAFoAAAAAAAAAAAAowIsAAAABAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-05T19:45:23.169Z"
+              "WhenOpened": "2025-05-05T19:45:23.169Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -118,7 +119,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "Inventory.cs",
               "DocumentMoniker": "C:\\Users\\Manuel\\Desktop\\Facultad\\2do A\u00F1o\\2do Cuatrimestre\\Aplicaci\u00F3n de Motores II\\No-1\\No-1\\Assets\\Scripts\\Player\\Inventory.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Player\\Inventory.cs",
@@ -130,7 +131,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "Entity.cs",
               "DocumentMoniker": "C:\\Users\\Manuel\\Desktop\\Facultad\\2do A\u00F1o\\2do Cuatrimestre\\Aplicaci\u00F3n de Motores II\\No-1\\No-1\\Assets\\Scripts\\Entities\\Entity.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Entities\\Entity.cs",
@@ -138,24 +139,24 @@
               "RelativeToolTip": "Assets\\Scripts\\Entities\\Entity.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAADsAAAABAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-05T19:37:04.06Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-05T19:37:04.06Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 1,
               "Title": "GameManager.cs",
               "DocumentMoniker": "C:\\Users\\Manuel\\Desktop\\Facultad\\2do A\u00F1o\\2do Cuatrimestre\\Aplicaci\u00F3n de Motores II\\No-1\\No-1\\Assets\\Scripts\\Managers\\GameManager.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Managers\\GameManager.cs",
               "ToolTip": "C:\\Users\\Manuel\\Desktop\\Facultad\\2do A\u00F1o\\2do Cuatrimestre\\Aplicaci\u00F3n de Motores II\\No-1\\No-1\\Assets\\Scripts\\Managers\\GameManager.cs",
               "RelativeToolTip": "Assets\\Scripts\\Managers\\GameManager.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABgAAAABAAAA",
+              "ViewState": "AQIAACkAAAAAAAAAAAAswE4AAAA1AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-05T20:40:01.716Z"
+              "WhenOpened": "2025-05-05T20:40:01.716Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "PlayerMovement.cs",
               "DocumentMoniker": "C:\\Users\\Manuel\\Desktop\\Facultad\\2do A\u00F1o\\2do Cuatrimestre\\Aplicaci\u00F3n de Motores II\\No-1\\No-1\\Assets\\Scripts\\Player\\PlayerMovement.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Player\\PlayerMovement.cs",

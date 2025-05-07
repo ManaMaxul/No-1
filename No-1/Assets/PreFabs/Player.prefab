@@ -11585,7 +11585,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 1894
+  m_VersionIndex: 1903
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -11727,10 +11727,12 @@ MonoBehaviour:
   baseDefense: 5
   type: 0
   velocidadMovimiento: 5
+  dashForce: 25
+  dashDuration: 0.3
+  dashCooldown: 3
   attackRange: 2
   attackAngle: 45
   attackCooldown: 0.5
-  shieldRadius: 3.5
   shieldPushForce: 5
   shieldObject: {fileID: 2038068915088573855}
   distanciaCamara: 10
@@ -11777,13 +11779,17 @@ MonoBehaviour:
     defense: 0
     itemName: 
     description: 
+    handOffset: {x: 0, y: 0, z: 0}
+    handRotation: {x: 0, y: 0, z: 0}
   - type: 3
-    prefab: {fileID: 1022986715843975689, guid: d3457bc2b2dac9148a6486df419e5b14,
+    prefab: {fileID: 3378029600331769750, guid: d3457bc2b2dac9148a6486df419e5b14,
       type: 3}
     damage: 0
     defense: 10
     itemName: 
     description: 
+    handOffset: {x: 0, y: 0, z: 0}
+    handRotation: {x: 90, y: 45, z: 0}
   leftHandTransform: {fileID: 8358435579427105002}
   rightHandTransform: {fileID: 2866670609566200784}
 --- !u!1 &1008884719778742539
@@ -11844,8 +11850,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2038068915088573855}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0.70710576, z: -0, w: 0.7071079}
-  m_LocalPosition: {x: 0.000013828279, y: -1, z: -0.18999964}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -1, z: 0}
   m_LocalScale: {x: 7.563294, y: 7.563294, z: 7.563294}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -12634,7 +12640,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 4399
+  m_VersionIndex: 4408
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []

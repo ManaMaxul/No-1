@@ -38,10 +38,10 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _OutlineThickness: 0.89
+    - _OutlineThickness: -31.73
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _Shadow_Threshold: 0.55
+    - _Shadow_Threshold: -2.11
     m_Colors:
     - _BaseColor: {r: 1, g: 0.08962262, b: 0.08962262, a: 0}
     - _OutlineColor: {r: 0.735849, g: 0.53609127, b: 0.19090424, a: 0}

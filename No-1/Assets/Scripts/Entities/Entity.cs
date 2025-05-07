@@ -3,7 +3,7 @@ using UnityEngine;
 public abstract class Entity : MonoBehaviour
 {
     public enum EntityType { Player, Enemy, Boss }
-    public enum EntityState { Idle, Moving, Attacking, Dead }
+    public enum EntityState { Idle, Moving, Attacking, Dead, Dashing }
 
     [Header("Estadísticas Base")]
     [SerializeField] protected float maxHealth = 100f;

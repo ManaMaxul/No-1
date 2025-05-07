@@ -5,6 +5,14 @@ public class PlayerMovement : Entity
     [Header("Movimiento")]
     public float velocidadMovimiento = 5f;
 
+    [Header("Dash")]
+    public float dashForce = 20f;
+    public float dashDuration = 0.2f;
+    public float dashCooldown = 1f;
+    private float lastDashTime;
+    private bool isDashing;
+    private float dashTimeLeft;
+
     [Header("Ataque")]
     public float attackRange = 2f;
     public float attackAngle = 45f;
@@ -12,10 +20,10 @@ public class PlayerMovement : Entity
     private float lastAttackTime;
 
     [Header("Escudo")]
-    public float shieldRadius = 2f;
     public float shieldPushForce = 5f;
     public GameObject shieldObject;
     private bool shieldActive;
+    private float shieldRadius;
 
     [Header("Cámara Fija")]
     public float distanciaCamara = 5f;
@@ -59,6 +67,19 @@ public class PlayerMovement : Entity
         if (shieldObject != null)
         {
             shieldObject.SetActive(false);
+            // Obtener el radio del escudo basado en el tamaño del objeto
+            SphereCollider shieldCollider = shieldObject.GetComponent<SphereCollider>();
+            if (shieldCollider != null)
+            {
+                shieldRadius = shieldCollider.radius * Mathf.Max(shieldObject.transform.lossyScale.x, 
+                                                               shieldObject.transform.lossyScale.y, 
+                                                               shieldObject.transform.lossyScale.z);
+            }
+            else
+            {
+                Debug.LogWarning("No se encontró un SphereCollider en el objeto del escudo. Usando radio por defecto.");
+                shieldRadius = 1f;
+            }
         }
         else
         {
@@ -68,10 +89,26 @@ public class PlayerMovement : Entity
 
     void Update()
     {
+        if (isDashing)
+        {
+            dashTimeLeft -= Time.deltaTime;
+            if (dashTimeLeft <= 0)
+            {
+                isDashing = false;
+            }
+            ActualizarCamara();
+            return;
+        }
+
         float movimientoHorizontal = Input.GetAxisRaw("Horizontal");
         float movimientoVertical = Input.GetAxisRaw("Vertical");
         Vector3 direccionCamara = new Vector3(movimientoHorizontal, 0f, movimientoVertical).normalized;
         movimientoActual = direccionCamara * velocidadMovimiento;
+
+        if (Input.GetKeyDown(KeyCode.LeftShift) && Time.time >= lastDashTime + dashCooldown)
+        {
+            PerformDash();
+        }
 
         if (movimientoActual.magnitude > 0.1f)
         {
@@ -110,15 +147,28 @@ public class PlayerMovement : Entity
 
     void FixedUpdate()
     {
-        Move(movimientoActual);
+        if (isDashing)
+        {
+            rb.isKinematic = true;
+            Vector3 dashDirection = bodyTransform.forward * dashForce * Time.fixedDeltaTime;
+            rb.MovePosition(rb.position + new Vector3(dashDirection.x, 0, dashDirection.z));
+        }
+        else
+        {
+            rb.isKinematic = false;
+            Move(movimientoActual);
+        }
         Vector3 rotacionActual = bodyTransform.rotation.eulerAngles;
         bodyTransform.rotation = Quaternion.Euler(0f, rotacionActual.y, 0f);
     }
 
     void Move(Vector3 movimiento)
     {
-        Vector3 nuevaVelocidad = new Vector3(movimiento.x, rb.velocity.y, movimiento.z);
-        rb.velocity = nuevaVelocidad;
+        if (!rb.isKinematic)
+        {
+            Vector3 nuevaVelocidad = new Vector3(movimiento.x, rb.velocity.y, movimiento.z);
+            rb.velocity = nuevaVelocidad;
+        }
     }
 
     void ActualizarCamara()
@@ -153,7 +203,13 @@ public class PlayerMovement : Entity
 
     bool CanAttack()
     {
-        return (inventory.leftHandItem?.type == Inventory.ItemType.Espada || inventory.rightHandItem?.type == Inventory.ItemType.Espada) && Time.time >= lastAttackTime + attackCooldown;
+        if (inventory == null) return false;
+        
+        bool hasSword = (inventory.leftHandItem?.type == Inventory.ItemType.Espada || 
+                        inventory.leftHandItem?.type == Inventory.ItemType.EspadaLarga || 
+                        inventory.leftHandItem?.type == Inventory.ItemType.EspadaPesada);
+        
+        return hasSword && Time.time >= lastAttackTime + attackCooldown;
     }
 
     void Attack()
@@ -175,15 +231,25 @@ public class PlayerMovement : Entity
 
     bool CanUseShield()
     {
-        return (inventory.leftHandItem?.type == Inventory.ItemType.Escudo || inventory.rightHandItem?.type == Inventory.ItemType.Escudo);
+        if (inventory == null) return false;
+        
+        bool hasShield = (inventory.rightHandItem?.type == Inventory.ItemType.Escudo || 
+                         inventory.rightHandItem?.type == Inventory.ItemType.EscudoGrande);
+        
+        return hasShield;
     }
 
     void ActivateShield()
     {
+        if (!CanUseShield()) return;
+
         shieldActive = true;
         if (shieldObject != null)
         {
             shieldObject.SetActive(true);
+            // Asegurarse de que el escudo siga al jugador
+            shieldObject.transform.position = bodyTransform.position;
+            shieldObject.transform.rotation = bodyTransform.rotation;
         }
         else
         {
@@ -204,6 +270,8 @@ public class PlayerMovement : Entity
 
     void CheckShieldCollisions()
     {
+        if (!shieldActive || shieldObject == null) return;
+
         Collider[] hits = Physics.OverlapSphere(bodyTransform.position, shieldRadius);
         foreach (Collider hit in hits)
         {
@@ -253,6 +321,16 @@ public class PlayerMovement : Entity
             Gizmos.color = Color.cyan;
             Gizmos.DrawWireSphere(bodyTransform.position, shieldRadius);
         }
+    }
+
+    void PerformDash()
+    {
+        isDashing = true;
+        dashTimeLeft = dashDuration;
+        lastDashTime = Time.time;
+        CurrentState = EntityState.Dashing;
+        rb.isKinematic = true;
+        Debug.Log("¡Dash realizado!");
     }
 
     protected override void Die()
