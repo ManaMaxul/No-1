@@ -38,18 +38,18 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _FallOff: 4
+    - _FallOff: 5
     - _Float: 0.25
     - _Float_1: 1.64
-    - _Fresnel_Forward: 4
+    - _Fresnel_Forward: 5
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _Voronoi_Density: 1.83
-    - _Voronoi_Strenght: 0.92
-    - _distance: 12
-    - _speed: -0.05
+    - _Voronoi_Density: 20
+    - _Voronoi_Strenght: 0.5
+    - _distance: 10
+    - _speed: 0.05
     m_Colors:
-    - _Base_Color: {r: 3.121395, g: 10.241459, b: 12.075472, a: 0}
+    - _Base_Color: {r: 0, g: 9.060775, b: 11.406868, a: 0}
   m_BuildTextureStacks: []
 --- !u!114 &6885559752117946774
 MonoBehaviour:
