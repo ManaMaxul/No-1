@@ -49,11 +49,6 @@ public class ScuttleBot : Enemy
             {
                 playerBody = playerObj.transform;
             }
-            Debug.Log("Cuerpo del jugador encontrado");
-        }
-        else
-        {
-            Debug.LogError("No se encontró el jugador en la escena");
         }
 
         if (GameManager.Instance != null)
@@ -64,6 +59,13 @@ public class ScuttleBot : Enemy
         {
             Debug.LogWarning("GameManager no encontrado en la escena. El ScuttleBot funcionará sin sistema de oleadas.");
         }
+
+        // Typing y rareza para el ScuttleBot
+        typeRarity = new Inventory.TypeRarity();
+        typeRarity.types.Add(Inventory.DamageType.Lightning);
+        typeRarity.rarity = Inventory.Rarity.TwoStars;
+        resistances = new List<Inventory.DamageType> { Inventory.DamageType.Lightning };
+        weaknesses = new List<Inventory.DamageType> { Inventory.DamageType.Earth };
     }
 
     void Update()
@@ -87,12 +89,10 @@ public class ScuttleBot : Enemy
 
         if (distanceToPlayer <= detectionRange)
         {
-            Debug.Log("¡Jugador detectado en rango!");
             transform.LookAt(new Vector3(playerBody.position.x, transform.position.y, playerBody.position.z));
             
             if (!hasShot)
             {
-                Debug.Log("¡DISPARO!");
                 ShootCone();
                 hasShot = true;
                 SetRetreatTarget();
